@@ -1,0 +1,15 @@
+UI
+- background image
+- Copy
+-- Secret Diary
+-- Store your thoughts permanently and securely. 
+-- Interested? Sign up now. / Log in using your username and password
+- Style email field
+- Style Password field
+- Style "Stay logged in"
+- One submit button (which will switch between sign up and log in)
+- Log in button (which will switch between sign up and log in)
+
+Client Logic
+- On login/ sign up click, switch the text of 
+

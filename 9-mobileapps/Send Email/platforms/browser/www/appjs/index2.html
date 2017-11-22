@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1.0,
+                                   maximum-scale=1.0,
+                                   user-scalable=no,
+                                   minimal-ui">
+    <link rel="stylesheet" href="app.min.css">
+    <style>
+      /* put your styles here */
+    </style>
+  </head>
+  <body>
+	<div class="app-page" data-page="home"> <!-- Start Contacts Page -->
+	  <div class="app-topbar">
+	  	  <div class="app-title">Send An Email</div>
+	  </div>
+	  <div class="app-content">
+		<div class="app-section">
+			<p>Click below to send an email!</p>
+		</div>
+		<div class="app-section">
+			<ul class="app-list">
+			  <li class="app-button">omar.miyazaki@gmail.com</li>
+			  <li class="app-button">omar.miyazaki@gmail.com</li>
+			  <li class="app-button">omar.miyazaki@gmail.com</li>
+			</ul>
+		</div>
+		<div class="app-section">
+			<div class="app-button" data-target="email">Send to new user</div>
+		</div>
+	  </div>
+	</div> <!-- End Contacts Page -->
+	<div class="app-page" data-page="email"> <!-- Start Email Page -->
+	  <div class="app-topbar">
+ 	  	  <div class="app-button" data-back>Go back</div>
+	  	  <div class="app-title">Send Email</div>
+	  </div>
+	  <div class="app-content">
+	  	<div id="errors"></div>
+		<form id="sendEmail">
+			<div class="app-section">
+			  <p>From:</p>
+			  <input id="fromEmail" class="app-input" placeholder="From email">
+			</div>
+			<div class="app-section">
+			  <p>To:</p>
+			  <input id="toEmail" class="app-input" placeholder="To email">
+			</div>
+			<div class="app-section">
+			  <input id="emailSubject" class="app-input" placeholder="Subject">
+			  <textarea id="emailMessage" class="app-input" placeholder="Message"></textarea>
+			  <div class="app-button" id="submitForm">Send</div>
+			</div>
+		</form>
+	  </div>
+	</div> <!-- End Email Page -->
+
+
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+
+    	App.load('email');
+
+    	$("#submitForm").click(function() {
+    		
+    		var errors; 
+
+    		// alert($("#fromEmail").val());
+    		// alert($("#toEmail").val());
+    		// alert($("#emailSubject").val());
+    		// alert($("#emailMessage").val());
+
+    		if ($("#fromEmail").val() == "" || $("#toEmail").val() == "" || $("#emailSubject").val() == "" || $("#emailMessage").val() == "") {
+
+    			$("#errors").html("<div class='app-section'><p>Please complete every field.</p></div>");
+
+    		} else {
+
+    			alert("success");
+    			$("#errors").html("<div class='app-section'><p>Your email was sent successfully!</p></div>");
+
+    			$.ajax({
+    				url: "https://www.google.com/",
+    				type: "GET",
+    				success: function(data) {
+    					alert("hello");
+    				}
+    			});
+
+    		}
+
+
+    	})
+
+    </script>
+  </body>
+</html>

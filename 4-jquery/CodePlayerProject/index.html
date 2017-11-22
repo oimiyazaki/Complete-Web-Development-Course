@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CodePlayer</title>
+		
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">	
+	
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			font-family: Arial;
+			width: 100%;
+			height: 100%;
+		}
+		
+		#header {
+			width: 100%;
+			height: 5%;
+			background-color: #EEEEEE;
+			float: left;
+		}
+		
+		h1 {
+			margin: 0;
+			width: 200px;
+			font-size: 20px;
+			position: absolute;
+			margin-top: 5px;
+			margin-left: 10px;
+		}
+		
+		#button-container {
+			height: 30px;
+			width: 230px;
+			margin: 5px auto 0;
+		}
+
+		button {
+			height: 25px;
+			padding: 3px 8px;
+			margin: 0 -3px;
+			background-color: #EBF4FF;
+			border: 1px solid #CCCCCC;
+		}
+
+		#buttonHtml {
+			border-top-left-radius: 7px;
+			border-bottom-left-radius: 7px;
+		}
+
+		#buttonOutput {
+			border-top-right-radius: 7px;
+			border-bottom-right-radius: 7px;
+
+		}
+		#codeSectionsContainer {
+			width: 100%;
+			height: 95%;
+			background-color: gainsboro;
+		}
+		.codeSection {
+			width: 24.5%;
+			height: 99%;
+			background-color: white;
+		    resize: none;
+		    float: left;
+		    border: none;
+		    margin: 0;
+		    border-right: 1px solid black;
+	    }
+	    .clear {
+	    	clear: both;
+	    }
+		
+	</style>
+</head>
+<body>
+	<div id="header">
+ 		<h1>CodePlayer</h1>
+		<div id="button-container">
+			<button id="buttonHtml">HTML</button>
+			<button id="buttonCss">CSS</button>
+			<button id="buttonJavascript">JavaScript</button>
+			<button id="buttonOutput">Output</button>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+	
+	<div id="codeSectionsContainer">
+		<textarea class="codeSection" id="codeSectionHtml" placeholder="HTML"></textarea>
+		<textarea class="codeSection" id="codeSectionCss" placeholder="CSS"></textarea>
+		<textarea class="codeSection" id="codeSectionJavascript" placeholder="JavaScript"></textarea>
+		<iframe class="codeSection" id="codeSectionOutput" name="Viewer" src=""></iframe>
+	</div>
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+  
+		// Buttons ON on load
+		var buttonHtmlClicked = true;
+		var buttonCssClicked = true;
+		var buttonJavascriptClicked = true;
+		var buttonOutputClicked = true;
+
+		var buttonsEnabled = 4;
+
+		// Set codeSection width
+		function setWidth() {
+			if (buttonsEnabled == 0) {
+				$(".codeSection").css("width", "0%");
+
+			} else if (buttonsEnabled == 1) {
+				$(".codeSection").css("width", "99%");
+
+			} else if (buttonsEnabled == 2) {
+				$(".codeSection").css("width", "49.5%");
+
+			} else if (buttonsEnabled == 3) {
+				$(".codeSection").css("width", "33%");
+
+			} else {
+				$(".codeSection").css("width", "24.5%");
+			}
+
+		}
+
+		// On buttons click, 1) set button state, set section display, set sections width
+		$("#buttonHtml").click(function() {
+			if (buttonHtmlClicked == false) {
+				buttonsEnabled += 1;
+				buttonHtmlClicked = true;
+				$("#codeSectionHtml").css("display", "block");
+				$("#buttonHtml").css("background-color", "#EBF4FF");
+				setWidth();
+
+			} else {
+				buttonsEnabled += -1;
+				buttonHtmlClicked = false;
+				$("#codeSectionHtml").css("display", "none");
+				$("#buttonHtml").css("background-color", "#EEEEEE");
+				setWidth();
+			}
+		})
+
+
+		$("#buttonCss").click(function() {
+			if (buttonCssClicked == false) {
+				buttonsEnabled += 1;
+				buttonCssClicked = true;
+				$("#codeSectionCss").css("display", "block");
+				$("#buttonCss").css("background-color", "#EBF4FF");
+				setWidth();
+
+			} else {
+				buttonsEnabled += -1;
+				buttonCssClicked = false;
+				$("#codeSectionCss").css("display", "none");
+				$("#buttonCss").css("background-color", "#EEEEEE");
+				setWidth();
+			}
+		})
+
+
+		$("#buttonJavascript").click(function() {
+			if (buttonJavascriptClicked == false) {
+				buttonsEnabled += 1;
+				buttonJavascriptClicked = true;
+				$("#codeSectionJavascript").css("display", "block");
+				$("#buttonJavascript").css("background-color", "#EBF4FF");
+				setWidth();
+
+			} else {
+				buttonsEnabled += -1;
+				buttonJavascriptClicked = false;
+				$("#codeSectionJavascript").css("display", "none");
+				$("#buttonJavascript").css("background-color", "#EEEEEE");
+				setWidth();
+			}
+		})
+	
+		$("#buttonOutput").click(function() {
+			if (buttonOutputClicked == false) {
+				buttonsEnabled += 1;
+				buttonOutputClicked = true;
+				$("#codeSectionOutput").css("display", "block");
+				$("#buttonOutput").css("background-color", "#EBF4FF");
+				setWidth();
+
+			} else {
+				buttonsEnabled += -1;
+				buttonOutputClicked = false;
+				$("#codeSectionOutput").css("display", "none");
+				$("#buttonOutput").css("background-color", "#EEEEEE");
+				setWidth();
+			}
+		})
+
+
+		var codeStringHtml = "";
+		var codeStringCss = "";
+		var codeStringJavascript = "";
+
+
+		$("#codeSectionHtml").keyup(function() {
+			codeStringHtml = $("#codeSectionHtml").val();
+			updateIframe();
+		})
+
+
+		$("#codeSectionCss").keyup(function() {
+			codeStringCss = $("#codeSectionCss").val();
+			updateIframe();
+		})
+
+		$("#codeSectionJavascript").keyup(function() {
+			codeStringJavascript = $("#codeSectionJavascript").val();
+			updateIframe();
+		})
+
+
+		function updateIframe() {
+
+			window.frames['Viewer'].document.body.innerHTML = codeStringHtml;
+		    var x = document.getElementById("codeSectionOutput");
+		    var y = x.contentDocument;
+
+		    y.write( "<!DOCTYPE html><html><head><style type='text/css'>" + codeStringCss + "</style></head><body>"  + "\<script type='text/javascript' src='jquery.min.js'>/<\/script>" + "\<script>" + codeStringJavascript + "\<\/script></body></html>");
+
+
+
+			// window.frames['Viewer'].document.body.innerHTML = "";
+		 //    var x = document.getElementById("codeSectionOutput");
+		 //    var y = x.contentDocument;
+
+		 //    y.write( "<!DOCTYPE html><html><head><style type='text/css'>" + codeStringCss + "</style></head><body>" + codeStringHtml  + "\<script type='text/javascript' src='jquery.min.js'>/<\/script>" + "\<script>" + codeStringJavascript + "\<\/script></body></html>");
+
+
+
+			}
+
+	</script>
+</body>
+</html>

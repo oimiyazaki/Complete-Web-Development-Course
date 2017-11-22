@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML 5 and CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<style type="text/css">
+
+		#myCanvas {
+
+		border: 1px solid gray;
+
+		}
+
+		#clockCanvas {
+
+		border: 1px solid gray;
+
+		}
+		#gradient {
+			width: 500px;
+			height: 200px;
+			background-color: blue;
+			background: linear-gradient(to bottom right,white,red,green,blue);
+		}
+		#radialgradient {
+			width: 500px;
+			height: 200px;
+			background-color: blue;
+			background: radial-gradient(white,blue);
+		}
+		#gradient2nd {
+			width: 500px;
+			height: 200px;
+			background-color: blue;
+			background: linear-gradient(to top right, yellow, green);
+		}
+		h2 {
+			text-shadow: 2px 2px 4px green, -5px -5px 4px yellow;
+			color: white;
+		}
+		h3{
+			text-shadow: 0 0 5px red;
+		}
+		#shadow {
+			width: 200px;
+			height: 200px;
+			box-shadow: 12px 12px 6px gray;
+			background-color: antiquewhite;
+		}
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-radius: 10px;
+			transition: 1s ease-in-out;
+		}
+		#box:hover {
+			transform: translate(50px,50px);
+		}
+		#multi-column {
+			column-count: 3;
+			column-gap: 40px;
+
+			column-rule-style: solid;
+			column-rule-width: 1px;
+			column-rule-color: gray;
+		}
+		#news {
+			column-span: all;
+		}
+	</style>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Layout and Calculations</h1>
+	<hr>
+
+	<div id="multi-column">
+	<h4 id="news">News for Nerds</h4>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<br><br>
+
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<br><br>
+
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	</div>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Animations and Transformation</h1>
+	<hr>
+
+	<div id="box"></div>
+
+
+
+
+	<br>
+	<h1>Gradients</h1>
+	<hr>
+
+	<h2>This text will have a shadow</h2>
+	<h3>This text wil glow</h3>
+	<div id="shadow"></div>
+	<div id="gradient"><h1>This is a gradient</h1></div>
+	<div id="radialgradient"></div>
+	<div id="gradient2nd"></div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>HTML 5 Challenge - clock</h1>
+	<hr>
+
+	<canvas id="clockCanvas" width="500" height="500"></canvas>
+
+	<script type="text/javascript">
+		
+		function toRadians (angle) {
+		  return angle * (Math.PI / 180);
+		}
+
+		function xC(angle, raidus){
+			return Math.cos(toRadians(angle)) * raidus + canvasAdjustment;
+		}
+
+		function yC(angle, raidus){
+			return Math.sin(toRadians(angle)) * raidus + canvasAdjustment;
+		}		
+
+		// Radius of circles
+		var dialRadius = 210;
+		var dialHours = 130;
+		var dialMinutes = 190;
+		var dialSeconds = 210;
+
+		// without the canvasAdjustment the function xC and yC return coordinate (0,220) for 0 degress but to drag it on the canvas I need (250, 470).
+		var canvasAdjustment = 250; 
+
+		// Start canvas
+		var clockCanvas = document.getElementById("clockCanvas");
+		var clockContext = clockCanvas.getContext("2d");
+
+		// time
+		var d = new Date();
+
+		// current time in degrees
+		var secondsDegreesPassed = d.getSeconds() * 6 - 90; // 0 - 60 seconds * 6 degrees - 90 degress
+		var minutesDegreesPassed = d.getMinutes() * 6 - 90; // 0 - 60 minutes * 6 degrees - 90 degress
+		var hoursDegreesPassed = d.getHours() * 30 - 90; // 0 - 24 hours * 30 degrees - 90 degress
+
+		console.log(d.getMinutes());
+
+	    setInterval(runClock, 1000); // regular time -> 1000	; 	crack mode -> 1
+	    setInterval(runMinutes, 60000); // regular time -> 60000	; 	crack mode -> 60
+	    setInterval(runHours, 360000); // regular time -> 360000	; 	crack mode -> 3600
+
+
+		function runClock() {
+		
+			// Black clock
+			clockContext.beginPath();
+			clockContext.arc(250,250,250,0, 2*Math.PI);
+			clockContext.fillStyle = "black";
+			clockContext.fill();
+
+			// White center
+			clockContext.beginPath();
+			clockContext.arc(250,250,8,0, 2*Math.PI);
+			clockContext.fillStyle = "white";
+			clockContext.fill();
+
+		 	// hours hand
+			clockContext.moveTo(xC(hoursDegreesPassed, dialHours),yC(hoursDegreesPassed, dialHours));
+			clockContext.lineTo(250,250); 
+			clockContext.lineWidth = 7;
+			clockContext.strokeStyle = "white";
+			clockContext.stroke();
+
+		 	// Minutes hand
+			clockContext.moveTo(xC(minutesDegreesPassed, dialMinutes),yC(minutesDegreesPassed, dialMinutes));
+			clockContext.lineTo(250,250); 
+			clockContext.lineWidth = 3;
+			clockContext.strokeStyle = "white";
+			clockContext.stroke();
+
+		 	// Seconds hand
+		    secondsDegreesPassed += 360 / 60;
+
+		    clockContext.beginPath();
+			clockContext.moveTo(xC(secondsDegreesPassed, dialSeconds),yC(secondsDegreesPassed, dialSeconds));
+			clockContext.lineTo(250,250); 
+			clockContext.lineWidth = 2;
+			clockContext.strokeStyle = "white";
+			clockContext.stroke();
+
+			// Dials 
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("12", xC(270, dialRadius), yC(270, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("1", xC(300, dialRadius), yC(300, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("2", xC(330, dialRadius), yC(330, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("3", xC(0, dialRadius), yC(0, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("4", xC(30, dialRadius), yC(30, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("5", xC(60, dialRadius), yC(60, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("6", xC(90, dialRadius), yC(90, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("7", xC(120, dialRadius), yC(120, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("8", xC(150, dialRadius), yC(150, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("9", xC(180, dialRadius), yC(180, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("10", xC(210, dialRadius), yC(210, dialRadius));
+
+			clockContext.fillStyle = "white";
+			clockContext.font = "20px Arial";
+			clockContext.fillText("11", xC(240, dialRadius), yC(240, dialRadius));
+
+		}
+
+
+
+		function runMinutes() { 
+
+			minutesDegreesPassed += 360 / 60;
+
+		}
+
+		function runHours() { 
+
+			hoursDegreesPassed += 360 / 12;
+
+		}
+
+
+
+	</script>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>HTML 5 Canvas</h1>
+	<hr>
+	<canvas id="myCanvas" width="500" height="400">
+		
+	</canvas>
+
+	<script type="text/javascript">
+		
+		var myCanvas = document.getElementById("myCanvas");
+		var context = myCanvas.getContext("2d");
+
+		var gradient = context.createLinearGradient(150, 100, 350, 300);
+
+		gradient.addColorStop(0, "white");
+		gradient.addColorStop(1, "#49C900")
+
+		context.fillStyle = gradient;
+		context.fillRect(150,100,200,200);
+
+		context.moveTo(150,100);
+		context.lineTo(350,300); 
+		context.lineWidth = 5;
+		context.strokeStyle = "#F42924";
+		context.stroke();
+
+		context.moveTo(350,100);
+		context.lineTo(150,300);
+		context.lineWidth = 5;
+		context.strokeStyle = "#F42924";
+		context.stroke();
+
+		context.beginPath();
+		context.arc(100,100,50,0,2*Math.PI);
+		context.stroke();
+
+
+		gradientText = context.createLinearGradient(200,50,300,50);
+		gradientText.addColorStop(0,"yellow");
+		gradientText.addColorStop(1,"red");
+
+		context.fillStyle = gradientText;
+		context.font = "20px Arial";
+		context.fillText("My Canvas", 200, 50);
+
+	</script>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Video & Sound</h1>
+	<hr>
+	<video id="video" width="320" height="240" controls>
+		<source src="video.mp4" type="video/mp4">
+			Please upgrade your browswer
+	</video>
+
+		<button id="play">Play</button>
+
+	<script>
+		
+		document.getElementById("play").onclick= function() {
+
+			if (document.getElementById("video").paused) {
+
+				document.getElementById("video").play()
+				this.innerHTML = "Pause";
+				
+			} else {
+
+				document.getElementById("video").pause();
+				this.innerHTML = "Play";
+
+			}
+		}
+
+	</script>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>HTML 5</h1>
+	<hr>
+
+	<form id="myForm" action="processfrom.php">
+		<p>Placeholder: <input type="text" name="y" placeholder="this is a placeholder"></p>
+		<!-- <p>Autofocus: <input type="text" name="x" autofocus></p> -->
+		<p>Autocomplete off: <input type="text" name="y" autocomplete="off"></p>
+		<p>Required: <input type="text" name="" required></p>
+		<p>Email: <input type="email" name="" ></p>
+		<p>Pattern: <input type="text" name="" pattern="[0-9]"></p>
+			<datalist id="names">
+				<select>
+					<option value="omar"></option>
+					<option value="Jamie"></option>
+					<option value="Brownie"></option>
+				</select>
+			</datalist>
+		<p>Autocomplete:<input type="text" list="names" name=""></p>
+		<p>Multiple file upload: <input type="file" multiple name=""></p>
+		<p><input type="submit" name="Submit" value="Submit to procesfrom2.php" formaction="processform2.php"></p>
+	</form>
+
+	<p>Code outside form: <input type="myForm" name="" type="text"></p>
+</body>
+</html>

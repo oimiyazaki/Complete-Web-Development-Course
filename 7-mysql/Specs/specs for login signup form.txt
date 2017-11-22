@@ -1,0 +1,84 @@
+
+Signup/ Login UI Forms
+x- email field
+x-- placeholder text "Your Email"
+x- password field 
+x-- placeholder text "Password"
+x- Stay logged in check box
+- Sign up & log in buttons
+
+Validation
+X- client email format
+X- client email cannot be empty 
+X- client password cannot be empty
+x- server email format
+x- server email cannot be empty 
+x- server password cannot be empty
+
+Sign up logic and workflow 
+When trying to log in the user
+x# Check for client side validation
+x# If the validation returns an error,
+x-- Do not submit the form
+x-- Display error
+x# If the server returns an error,
+x-- Display error
+x# If the form is submitted correctly, check if the email already exist. It if does, display error.
+x# Add the user to the database. If the user was not added successfully
+x-- Display error message
+x# If the user was added successfully
+x# Verify the user was added successfully
+x# Create Cookie or session
+xx# Redirect them to the home page
+
+
+Log in logic and workflow 
+When trying to log in the user
+x# Check for client side validation
+x# If the validation returns an error,
+x-- Do not submit the form
+x-- Display error
+x# If the server returns an error,
+x-- Display error
+x# Serch for email in the DB
+x# If email is not found, display error: "Invalid email or password"
+x# If email found
+x# Verify password
+x- Verify hash
+x# If password is invalid, display error: "Invalid email or password"
+x# If email and password are valid,
+x# Create Cookie or session
+x# Log them in by redirecting them to the log in page
+
+Session and cookies
+x- If they don't check off "stay logged in check box" create a session
+x- If they do check off "stay logged in" create a cookie
+
+Password 
+x- Hash during sign up
+- Verify hash during log in
+- create salt
+
+Logged in Page
+x- Text, you are logged in + "email"
+x- Log out button
+x-- Check if cookie or session. Remove cookie/ session 
+
+mySQL
+x- query = "where"
+x- Make connection
+x- Count rows or itterate rhought it
+
+
+
+***** Dev Tasks *****
+x- if log in or sign up, create variables
+x- For both, check if the fields are empty
+
+
+
+
+
+
+
+

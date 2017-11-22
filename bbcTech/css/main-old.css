@@ -1,0 +1,175 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+/** Headers **/
+.shortHeader {
+	width: 965px;
+	margin: 0 auto;
+}
+.longHeader {
+	width: 100%;
+	background-color: #BB1919;
+}
+/* Global menu*/
+#globalHeader {
+	height: 40px;
+	background-color: white;
+	font-size: 13px;
+	font-weight: bold;
+}
+#bbc-logo {
+	margin-top: 10px;
+	height: 19px;
+	float: left;
+}
+#globalMenu {
+  list-style-type: none;
+  margin: 3px 0 0 40px;
+  padding: 0;
+  float: left;
+}
+#globalMenu li {
+  display: inline;
+  margin: 2 0 -2px 0;
+  padding: 15px 6px 15px 6px;
+  border-right: 1px solid #D2D2D2;
+}
+#globalMenu li:hover {
+  border-bottom: 4px solid black;
+}
+.menu-links a {
+  text-decoration: none;
+  color: black;
+}
+#sign-in-button a {
+  padding-left: 30px;
+  padding-right: 70px;
+}
+#more-button a {
+  padding-left: 6px;
+  padding-right: 50px;
+}
+#global-search {
+	margin-top: 5px;
+	margin-left: 20px;
+	float: left;
+}
+#global-search-text {
+	height: 26px;
+	margin-top: 0px;
+	position: relative;
+	bottom: 11px;
+	left: 4px;
+	background-color: #E4E4E4;
+	border: 1px solid #E4E4E4;
+}
+/* Logo Header*/
+#logoHeaderBar {
+	height: 56px;
+	background-color: #BB1919;
+}
+#logoHeader {
+	height: 100%;
+	background-color: #BB1919;
+	padding-top: 15px;
+}
+/* Page Menu*/
+#menuHeaderBar {
+	height: 33px;
+	background-color: #A91717;
+	font-size: 15px;
+}
+#menuHeader {
+	height: 100%;
+	background-color: #A91717;
+}
+#pageMenu {
+  list-style-type: none;
+  width: 850px;
+  display: block;
+  margin: 0;
+  padding-top: 9px;
+}
+#pageMenu li {
+  display: inline;
+  margin: -2px;
+  padding: 0.5px 8px 0.5px 8px;
+  border-right: 1px solid white;
+  color: white;
+}
+#pageMenu li:hover {
+  border-bottom: 4px solid white;
+}
+.page-menu-links a {
+  text-decoration: none;
+  color: white;
+}
+/********** Body **********/
+/* Page Title*/
+#page-title-container {
+	height: 50px;
+	width: 965px;
+	margin: 0 auto;
+	padding: 0.5px 0 0 0;
+}
+#page-title {
+	width: 105px;
+	font-size: 20px;
+	font-weight: normal;
+	border-bottom: 3px solid #bb1916;
+}
+/* Body Container*/
+#body-container {
+	height: 1500px;
+	width: 965px;
+	margin: 0 auto;
+}
+/* Primary Column*/
+#mainBody {
+	height: 1000px;
+	width: 661px;
+	background-color: white;
+	float: left;
+}
+#featured-story-container {
+	height: 300px;
+	width: 661px;
+	background-color: GhostWhite;
+	border-bottom: 1px solid black;
+}
+.secondary-story-container {
+	height: 388px;
+	width: 215px;
+	padding-right: 16px;
+	margin-right: 16px;
+	float: left;
+	background-color: white;
+	border-right: 1px solid black;
+}
+.featured-story {
+	height: 400px;
+	width: 215px;
+	background-color: GhostWhite;
+}
+.tertiary-story-container {
+	height: 400px;
+	width: 165px;
+	background-color: white;
+	float: left;
+}
+.tertiary-story {
+	width: 149px;
+	height: 133px;
+	background-color: GhostWhite;
+	border-bottom: 1px solid black;
+}
+
+/* Secondary Column*/
+#sideBody {
+	height: 1005px;
+	width: 304px;
+	background-color: Gainsboro;
+	float: right;
+}

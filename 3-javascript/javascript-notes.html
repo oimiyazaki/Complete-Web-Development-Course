@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style type="text/css">
+		body {
+			font-family: Arial;
+		}
+		h2 {
+			color: DarkBlue;
+			clear: both;
+		}
+		.circle {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			float: left;
+			margin-right: 25px;
+		}
+		#red {
+			background-color: red;
+		}
+		#blue {
+			background-color: blue;
+		}
+		#yellow {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div> <!-- Sesson Start: Responding to a click --> 
+		<h2>Responding to a click</h2>
+		<p id="text">Hello world!</p>
+		<button id=myButton>Change text</button>
+	</div>
+	<div> <!-- Sesson Start: Changing website content --> 
+		<h2>Changing website content</h2>
+		<p id="secondParagraph">Javascript is...</p>
+		<button id="secondButton">Append text</button>
+		<p id="hiddenParagraph"></p>
+		<button id="hiddenButton">Appear</button>
+	</div>
+	<div> <!-- Sesson Start: Manipulating styles with Javascript --> 
+		<h2>Manipulating styles with Javascript</h2>
+		<p id="moreText">This is more text</p>
+		<button id="sytleText">Style Text</button>
+		<p id="moreText2">This is more text</p>
+		<button id="sytleText2">Style Text</button>
+	</div>
+	<div> <!-- Sesson Start: Mini challenge - Disappearing circles --> 
+		<h2>Mini challenge - Disappearing circles</h2>
+		<div class="circle" id="red"></div>
+		<div class="circle" id="blue"></div>
+		<div class="circle" id="yellow"></div>
+	</div>
+	<div> <!-- Sesson Start: Variables --> 
+		<h2>Mini challenge - Variables</h2>
+		<span>Leave a Comment</span><br>
+		<input id="newText" type="text" name="">
+		<button id="changeText">Submit</button>
+		<p id="someParagraph">0 comments</p>
+	</div>
+	<div> <!-- Lesson Start: If statement. Simple login.  --> 
+		<h2>If statement. Simple login.</h2>
+			<h3>What is the magic word?</h3>
+			<input id="passwordText" type="text" name="">
+			<button id="passwordSubmit">I dare to try</button>
+			<p>Shhhh. It's<span style="color:Gainsboro"> abracadabra</span></p>
+	</div>
+	<div> <!-- Mini challenge Guess how many fingers  --> 
+		<h2>Mini challenge Guess how many fingers</h2>
+		<p>
+			How many fingers am I holding up?<br>
+			<input id="fingerSubmission" type="text" name="">
+			<button id="fingerButton">Guess!</button>
+		</p>
+	</div>
+	<div> <!-- Sesson Start: .  --> 
+		<h2>Lesson</h2>
+
+
+	</div>
+
+
+
+	<script type="text/javascript">
+		// Responding to a click
+		document.getElementById('myButton').onclick = function() {
+			document.getElementById("text").innerHTML = "Hello Brown!";
+		}
+
+		// Changing website content
+		document.getElementById('secondButton').onclick = function() {
+			document.getElementById("secondParagraph").innerHTML = "I think " + document.getElementById("secondParagraph").innerHTML + "awesome!";
+		}
+
+		document.getElementById("hiddenButton").onclick = function() {
+			document.getElementById("hiddenParagraph").innerHTML = "<h1>Hiiii!</h1>"
+
+		// Manipulating styles with Javascript
+		}
+		document.getElementById("sytleText").onclick = function() {
+			document.getElementById("moreText").style.color = "red";
+		}
+		document.getElementById("sytleText2").onclick = function() {
+			document.getElementById("moreText2").style.fontSize = "50px";
+		}
+
+		// Mini challenge - Disappearing circles
+		document.getElementById("red").onclick = function() {
+			document.getElementById("red").style.display = "none";
+		}
+
+		document.getElementById("blue").onclick = function() {
+			document.getElementById("blue").style.display = "none";
+		}
+
+		document.getElementById("yellow").onclick = function() {
+			document.getElementById("yellow").style.display = "none";
+		}
+		// Variables
+		document.getElementById("changeText").onclick = function() {
+			name = ""
+			name = document.getElementById("newText").value;
+			document.getElementById("someParagraph").innerHTML = name;		
+		}
+
+		// Lesson Start: If statement. Simple login. 
+		var passwordSubmission = "";
+		var passwordCorrect = "abracadabra";		
+
+		document.getElementById("passwordSubmit").onclick = function() {
+	
+			var passwordSubmission = document.getElementById("passwordText").value;
+			
+			if (passwordSubmission == passwordCorrect) {
+				alert("YOU MAY ENTER!");
+			} else {
+				alert("YOU ARE NOT WORTHY!")
+			}
+		}
+
+		// Mini challenge Guess how many fingers
+		var fingerGuess = "";
+
+		document.getElementById("fingerButton").onclick = function() {
+			
+			var randomFingers = Math.floor(Math.random() * 6);
+			var fingerGuess = document.getElementById("fingerSubmission").value
+			
+			if (fingerGuess == randomFingers) {
+				alert("Correct!");
+			} else {
+				alert("Guess again.");
+			}
+		}
+
+
+
+
+	</script>
+</body>
+</html>

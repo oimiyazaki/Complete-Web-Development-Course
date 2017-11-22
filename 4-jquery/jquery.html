@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Lessons</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	
+	<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">	
+	
+	<style type="text/css">
+		.clear {
+			clear: both;
+			margin-bottom: 25px;
+		}
+		#draggable {
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			background-color: yellow;
+			margin-bottom: 10px;
+		}
+		#resizable {
+			width: 150px;
+			height: 150px;
+			border: 1px solid black;
+			background-color: blue;
+		}
+		#draggable2 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  		
+  		#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+		
+		#sortable { 
+			list-style-type: none; 
+			margin: 0; 
+			padding: 0; 
+			width: 400px; 
+		}
+		
+		#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+		
+		#sortable li span { position: absolute; margin-left: -1.3em; }
+
+	</style>
+</head>
+<body>
+
+	<div id="draggable">
+		<span id="stuck">I'm stuck in the box!</span>
+	</div>
+
+	<div id="resizable" class="ui-widget-content">
+	  <h4 class="ui-widget-header">Resize to 300px</h4>
+	</div>
+
+	<div id="draggable2" class="ui-widget-content">
+	  <p>Drag me to my target</p>
+	</div>
+	<div id="droppable" class="ui-widget-header">
+	  <p>Drop here</p>
+	</div>
+
+	<div class="clear"></div>
+
+	<div id="accordion">
+	  <h3>Preparing to Wash the Car</h3>
+	  <div>
+	    <p>
+	    Park the car out of direct sunlight. This prevents premature drying which can leave splotches on the paint. Washing your car in direct sunlight also runs the risk of your car becoming hot while you wash it, which will result in water evaporating more quickly and making the cleaning process more difficult.[1]
+		Check that all windows are closed and retract the antenna, in order to prevent water from getting inside the car or the antenna from being snapped off.
+		Pull the windshield wipers away from the windshield until they click into their propped position, away from the glass.
+
+	    </p>
+	  </div>
+	  <h3>Washing the Car</h3>
+	  <div>
+	    <p>
+		Hose off the car to loosen and soften the dirt. Don’t use a strong jet of water from the hose, as this can rub grit over the paint and scratch it. Try to aim the jet of water downwards on all surfaces.[5] Aiming upwards around windows may cause water to dribble into the car if there are flaws in the rubber seals.
+		</p>
+	  </div>
+	  <h3>Drying and Waxing the Car</h3>
+	  <div>
+	    <p>
+		Dry the vehicle with fresh towels. Don’t be afraid to use several towels while drying your vehicle—fully wipe down all surfaces that you’ve washed, in order to prevent rust from building up. Make sure not to leave any water standing on your vehicle once it’s dried, as this can tarnish the paint or cause rust.
+		Microfiber towels work the best for drying all car surfaces.[14] When you’re finished using them, toss them in the washing machine. When laundering, don’t use fabric softener on microfiber towels. It can become trapped in the pores, then leach out, leaving a residue on the car surface.
+	    </p>
+	  </div>
+	</div>
+	
+	<div class="clear"></div>
+
+	<ul id="sortable">
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+	  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+	</ul>
+
+
+
+	<script type="text/javascript">
+
+		$( function() {
+			$( "#stuck" ).draggable({ containment: "parent" });
+		} );
+
+		$( function() {
+			$( "#resizable" ).resizable({
+				resize: function(event, ui) {
+					if ($("#resizable").width() > 300) {
+						alert("Big enough");
+					}
+				}
+			})
+		} );
+
+		$( function() {
+		$( "#draggable2" ).draggable();
+		$( "#droppable" ).droppable({
+		  drop: function( event, ui ) {
+		    $( this )
+		      .addClass( "ui-state-highlight" )
+		      .find( "p" )
+		        .html( "Dropped!" );
+		  }
+		});
+		} );
+
+		$( function() {
+			$( "#accordion" ).accordion();
+		} );
+
+		$( function() {
+			$( "#sortable" ).sortable();
+		    $( "#sortable" ).disableSelection();
+		} );
+
+	</script>
+</body>
+</html>

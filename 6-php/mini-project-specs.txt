@@ -1,0 +1,15 @@
+
+Javascript
+- click submit button
+- check all not empty
+- If email empty, add error message
+- If subject empty, add error message
+- If content empty, add error message
+-display error message
+
+
+jQuery validation
+- The email is required
+- the subject is required
+- The content field is required. 
+- Success message

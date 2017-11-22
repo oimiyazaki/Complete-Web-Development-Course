@@ -1,0 +1,25 @@
+
+*Acceptance*
+UI
+- Success response message
+- Error response error messgages
+-- The city could not be found.
+
+Client side validation
+- Make sure the field is not empty
+- The city could not be found.
+
+server-side validation
+- make sure the field is not empty
+- the city could not be found
+
+Logic
+- weather-forecast.com
+- use URL (locations/New-York/forecast...
+- Use forecast summary
+
+
+Dev Tasks
+- Add php
+- Error message
+- plan out how to get weather

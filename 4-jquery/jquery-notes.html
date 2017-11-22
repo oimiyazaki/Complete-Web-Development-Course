@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Lessons</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<style type="text/css">
+		#circle1 {
+			background-color: green;
+			width: 100px;
+			height: 100px;
+			margin-bottom: 10px;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Moving animation</h2> <!-- Moving Animation --> 
+
+	<div id="circle1"></div>
+
+	<h2>AJAX</h2> <!-- Moving Animation --> 
+	<p>See javascript on this file</p>
+
+
+	<h2>Check with regex if great is in "Regex is great!"</h2>
+	<p>Result:<span id="rejexResult"></span></p>
+
+
+
+	<script type="text/javascript">
+
+		// Moving Animation
+$("#circle1").hover(function() {
+	$(this).animate({
+		width:"200px", 
+		height:"200px",
+		marginLeft:"25px",
+		marginTop:"25px"
+	}, 5000, function() {
+		$(this).css("background-color", "red");
+		}
+	);
+});
+
+
+		// Ajax
+		$.ajax("info.txt")
+		.done(function(data){
+		
+		alert(data);
+		
+		})
+		.fail(function(){
+		
+		alert("Could not receive data via AJAX");
+		
+		})
+
+
+		// Regex
+		var regex = /great/i;
+		var string = "Regex is great!";
+		var rResult = string.match(regex);
+
+		$("#rejexResult").html(rResult);
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.jumbotron {
+			background-image: url(jason-blackeye-295313.jpg);
+			background-position: center;
+		}
+		#card-header-section {
+			height:200px;
+		}
+		#download-section {
+			height: 500px;
+			background-image: url(plain-blue-background-wallpaper-3.jpg);
+			background-position: center;
+		}
+		#downloadButton {
+			width: 200px;
+		}
+	</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#navbarTogglerMain" data-offset="10">
+  	<!-- Nav bar -->
+  	<nav class="navbar navbar-toggleable-md bg-faded navbar-light fixed-top">
+  		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerMain" aria-expanded="false">
+  			<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<a class="navbar-brand" href="#">MyCompany</a>
+  		<div class="collapse navbar-collapse" id="navbarTogglerMain">
+	  		<ul class="navbar-nav mr-auto">
+	  			<li class="nav-item active">
+	  				<a class="nav-link" href="#home">Home</a>
+				</li>
+	  			<li class="nav-item">
+				</li>
+	  				<a class="nav-link" href="#about">About<a>
+	  			<li class="nav-item">
+	  				<a class="nav-link" href="#download">Download The App</a>
+				</li>
+	  		</ul>
+	  		<form class="form-inline">
+		  		<div class="form-group mr-sm-2">
+		  			<input class="form-control" type="email" placeholder="Email">
+		  		</div>
+		  		<div class="form-group mr-sm-2">
+		  			<input class="form-control" type="password" placeholder="Password">
+				</div>
+		  			<button class="btn btn-success" type="submit">Login</button>
+		  	</form>
+	  	</div>
+  	</nav>
+
+  	<!-- Jumbotron-->
+  	<div id="home" class="jumbotron jumbotron-fluid text-center mt-5">
+    	<h1 class="display-2">My Awesome App!</h1> 
+    	<p class="lead">This is why you should download this fantastic app!</p>
+    	<hr class="my-4">
+    	<p>Want to know more? Join our mailing list!</p>
+    	<form class="form-inline d-flex justify-content-center">
+	    	<div class="form-group">
+    			<div class="input-group-addon">@</div>
+    			<input class="form-control" type="email" name="joinEmail" placeholder="Your email">
+    		</div>
+    		<button class="btn btn-primary ml-1" type="submit">Submit</button>
+    	</form>
+  	</div>
+
+	<div id="about" class="container">  <!-- Start container -->
+		<!-- This is awesome section -->
+	 	<div id="card-header-section" class="row d-flex justify-content-center align-items-center">
+		  	<div class="text-center">
+		  		<h2>Why This App is Awesome</h2>
+		  		<h4 class="lead">Summary, once again, of your app's awesomeness</h4>
+	  		</div>
+		</div>
+
+		<!-- Card section -->
+		<div class="row">
+			<div class="col-md-4 mb-4">
+				<div class="card w-100">
+					<img class="card-img-top" src="https://ilovemoving.com/wp-content/uploads/2013/11/san-francisco.jpg">
+					<div class="card-block">
+						<h4 class="card-title"><i class="fa fa-thermometer-full" aria-hidden="true"></i>  Card title</h4>
+						<p class="card-text"> 
+							Cras eu eros ac purus luctus venenatis. Sed eleifend lectus turpis, sodales mollis erat suscipit vitae. Ut quis facilisis ipsum. Ut et scelerisque massa. Phasellus volutpat et magna non commodo. Ut mollis dolor eu sollicitudin rutrum. 
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card w-100">
+					<img class="card-img-top" src="https://ilovemoving.com/wp-content/uploads/2013/11/san-francisco.jpg">
+					<div class="card-block">
+						<h4 class="card-title"><i class="fa fa-cubes" aria-hidden="true"></i> Card title</h4>
+						<p class="card-text"> 
+							Phasellus volutpat et magna non commodo. Ut mollis dolor eu sollicitudin rutrum. Sed eu tincidunt lacus. Pellentesque consectetur, velit non finibus pellentesque, lectus enim malesuada lacus, ut aliquam diam erat non nunc. Integer aliquam nisi ligula, id pellentesque sapien blandit et. Proin tempus blandit finibus.
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card w-100">
+					<img class="card-img-top" src="https://ilovemoving.com/wp-content/uploads/2013/11/san-francisco.jpg">
+					<div class="card-block">
+						<h4 class="card-title"><i class="fa fa-microchip" aria-hidden="true"></i>  Card title</h4>
+						<p class="card-text"> 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu eros ac purus luctus venenatis. Sed eleifend lectus turpis, sodales mollis erat suscipit vitae. Ut quis facilisis ipsum. Ut et scelerisque massa.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End container -->
+
+	<div id="download" class="container-fluid mt-5">
+		<!-- Download section -->
+	 	<div id="download-section" class="row text-center d-flex flex-column justify-content-center" style="background-color:Gainsboro">
+	  		<h2>Download the app</h2>
+	  		<h4 class="lead">Really, why should I downlaod this app??</h4>
+	  		<div>
+	  			<img src="Android-App-Store.png" id="downloadButton" class="img-fluid mt-2">
+	  		</div>
+		</div>
+	</div>
+
+  </body>
+</html>

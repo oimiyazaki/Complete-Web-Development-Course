@@ -1,0 +1,58 @@
+
+Acceptance
+***     Nav Bar     ***
+- (x) My App title
+
+- Nav bar pages
+--- (x) Home
+--- (x) About
+--- (x) Download The App
+--- (x) add scrollspy
+
+- Sign in 
+--- (x) Email field
+--- (x) Password field
+--- (x) Log in button
+
+
+***     Jumbotron     ***
+- (x) Title 
+- (x) Subtitle
+- (x) hr line
+- (x) Backgroud image
+--- Note: use unsplash.com
+- (x) join maining list text
+
+- Email sign up
+--- (x) @ icon
+--- (x) Email field
+--- (x) Sign up bottom
+
+
+***     Why ... Awesome Section     ***
+- heading
+- paragraph
+
+- Three card section
+--- image
+--- headings
+--- Title
+--- Icons
+------ Note: use font-awesome 
+
+
+***     Download app section     ***
+- Heading
+- paragraph
+- Download button
+
+
+
+
+
+
+
+
+
+
+

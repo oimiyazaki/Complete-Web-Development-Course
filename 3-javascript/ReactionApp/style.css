@@ -1,0 +1,18 @@
+body {
+	font-family: Arial;
+}
+p {
+	font-size: 18px;
+}
+#resultText {
+	font-weight: bold;
+}
+#target {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: #27e833;
+	top: 200px;
+	left: 150px;
+	border-radius: 50%;
+}

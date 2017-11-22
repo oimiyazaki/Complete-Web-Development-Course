@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+    <h3>I can guess how many fingers you are holding up?</h3>
+    <select id="fingersHiddenInput">
+    	<option>0</option>
+    	<option>1</option>
+    	<option>2</option>
+    	<option>3</option>
+    	<option>4</option>
+    	<option>5</option>
+    </select>
+    <button id="fingerGuessButton">Guess!</button>
+    <br>
+	<div id="triesText"></div>
+
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<ul id="twitterFeed">
+			
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+
+		// var fingersHiddenInput = document.getElementById("fingersHiddenInput").innerHTML;
+
+		// alert(fingersHiddenInput);
+
+
+
+		document.getElementById("fingerGuessButton").onclick = function () {
+			
+			var hiddenFingers = document.getElementById("fingersHiddenInput").value ; 
+
+			var computerGuess = "";
+			var tries = 0
+
+			while (computerGuess != hiddenFingers) {
+				computerGuess = Math.floor(Math.random() * 6);
+				alert("Is it " + computerGuess + "?");
+				tries = tries + 1;
+			}
+
+			document.getElementById("triesText").innerHTML = "It only took me " + tries + " tries  :p"
+		}
+
+
+
+
+
+
+
+
+
+
+
+		var tweets = ["Hi everyone!","I love cornflakes","Night night :)", "Sweet dreams."];
+
+		var twitterList = ""
+
+		for (var i = 0; i < tweets.length; i++) {
+			var twitterList = "<li>" + tweets[i] + "</li>" + twitterList
+		}
+
+		document.getElementById("twitterFeed").innerHTML = twitterList
+
+	</script>
+</body>
+</html>
